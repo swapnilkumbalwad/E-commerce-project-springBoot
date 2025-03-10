@@ -1,20 +1,22 @@
 package com.jtspringproject.JtSpringProject.models;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-
-@Entity(name="CART")
+@Entity(name = "CART")
 public class Cart {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @ManyToOne
-    @JoinColumn(name="customer_id")
-    private User customer;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+// venkat louda khana deta hai 
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private User customer;
 
 //    @ManyToMany
 //    @JoinTable(
@@ -23,26 +25,24 @@ public class Cart {
 //    )
 //    private List<Product> products;
 
+	public Cart() {
+	}
 
-    public Cart() {
-    }
+	public int getId() {
+		return id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public User getCustomer() {
+		return customer;
+	}
 
-
-    public User getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(User customer) {
-        this.customer = customer;
-    }
+	public void setCustomer(User customer) {
+		this.customer = customer;
+	}
 
 //    public List<Product> getProducts() {
 //        return products;
